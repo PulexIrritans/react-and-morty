@@ -1,7 +1,5 @@
 const Card = () => {
    
-    
-
     return (
         <li className="Card">
            <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Profile picture" />

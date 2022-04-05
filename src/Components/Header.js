@@ -1,9 +1,9 @@
 const Header = () => {
    
     return (
-        <div className="Header">
+        <h1 className="Header">
            React and Morty go crazy
-        </div>
+        </h1>
     )
 }
 
