@@ -14,41 +14,41 @@ const CardLi = styled.li`
 const Card = ({
   image,
   name,
-  isactive,
   id,
   gender,
   status,
   species,
   origin,
   location,
+  
 }) => {
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(false);
-  const buttontext = 'Show more';
 
   const handleDetails = () => {
     setCardIsInDetailsMode(previousState => !previousState);
   };
 
+  
   return (
     <>
       {cardIsInDetailsMode ? (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          <p>I'm active</p>
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
+          <p>Origin: {origin}</p>
+          <p>Location: {location}</p>
           <Button onClick={handleDetails}>Show less</Button>
         </CardLi>
       ) : (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          <p>I'm not active</p>
-          <Link to="/details" onClick={handleDetails} isactive={isactive}>
-            Show more
-          </Link>
+          <Button>
+              <Link onClick={handleDetails} to={`/details/${id}`}>Show more</Link>
+          </Button>
         </CardLi>
       )}
     </>

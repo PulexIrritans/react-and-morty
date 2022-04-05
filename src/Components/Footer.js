@@ -9,28 +9,24 @@ background-color: pink;
 const FooterUl = styled.ul`
 display: flex;
 justify-content: space-around;
+`;
 
-`
 const FooterLi = styled.li`
 padding: 1rem 0;
 &:hover {
 background-color: deeppink;
 }
-`
+`;
 
 const Footer = () => {
 
     return (
         <StyledFooter>
         <FooterUl>
-            <FooterLi>Home</FooterLi>
-            <FooterLi>Random</FooterLi>
-            <FooterLi>Favorites</FooterLi>
-            <FooterLi>Get creative</FooterLi>
-        {/* <Link to="/">Home</Link>
-        <Link to="DetailedPage">Detailed Character</Link>
-        <Link to="RandomPage">Random</Link>
-        <Link to="FavoritesPage">Favorites</Link> */}
+            <FooterLi><Link to="/">Home</Link></FooterLi>
+            <FooterLi><Link to="/random">Random</Link></FooterLi>
+            <FooterLi><Link to="/favorites">Favorites</Link></FooterLi>
+            <FooterLi><Link to="/creative">Get creative</Link></FooterLi>
         </FooterUl>
         </StyledFooter>
     )

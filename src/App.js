@@ -4,12 +4,17 @@ import Footer from './Components/Footer';
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from './pages/MainPage';
+import DetailedPage from './pages/DetailedPage';
+import RandomPage from './pages/RandomPage';
+import FavoritesPage from './pages/FavoritesPage';
+import CreativePage from './pages/CreativePage';
   
 
 
 function App() {
 
   const [characters, setCharacters] = useState([]);
+  const [activecharacter, setactivecharacter] =useState({});
 
   const url = "https://rickandmortyapi.com/api/character/";
 
@@ -26,12 +31,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Routes> */}
-      <MainPage characters={characters}/>
-      {/* <Route path="/" element={ */}
-       
-      {/* }/>
-      </Routes> */}
+      <Routes>
+      <Route path="/" element={<MainPage characters={characters}/>} />
+      <Route path="/details/:id" element={<DetailedPage characters={characters} />} />
+      
+      
+      <Route path="/random" element={<RandomPage character={characters}/>} />
+      <Route path="/favorites" element={<FavoritesPage character={characters}/>} />
+      <Route path="/creative" element={<CreativePage character={characters}/>} />
+      </Routes>
       <Footer />
     </div>
   );
