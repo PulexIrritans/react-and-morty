@@ -26,8 +26,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MainPage characters={characters}/>
       {/* <Routes> */}
+      <MainPage characters={characters}/>
       {/* <Route path="/" element={ */}
        
       {/* }/>
