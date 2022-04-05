@@ -6,12 +6,13 @@ border-radius: 5px;
 max-width: 300px;
 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 5);
 `
-const Card = () => {
+
+const Card = ({ image, name }) => {
   
     return (
         <CardLi>
-           <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Profile picture" />
-           <p>Morty Smith</p>
+           <img src={image} alt="Profile picture" />
+           <p>{name}</p>
         </CardLi>
     )
 }
