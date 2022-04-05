@@ -1,12 +1,32 @@
+import styled from "styled-components";
+
+const StyledFooter = styled.div`
+background-color: pink;
+`;
+
+const FooterUl = styled.ul`
+display: flex;
+justify-content: space-around;
+
+`
+const FooterLi = styled.li`
+padding: 1rem 0;
+&:hover {
+background-color: deeppink;
+}
+`
+
 const Footer = () => {
 
     return (
-        <ul>
-        <li>Home</li>
-        <li>Random</li>
-        <li>Favorites</li>
-        <li>Be creative</li>
-        </ul>
+        <StyledFooter>
+        <FooterUl>
+        <FooterLi>Home</FooterLi>
+        <FooterLi>Random</FooterLi>
+        <FooterLi>Favorites</FooterLi>
+        <FooterLi>Be creative</FooterLi>
+        </FooterUl>
+        </StyledFooter>
     )
 }
 
