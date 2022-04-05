@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <title>Rick and Morty</title>
+  </head>
+  <body>
+    <header>
+      <img src="/resources/Bildschirmfoto 2022-03-25 a um 11.05.10.png" alt="Logo" />
+      <form class="form" action="">
+        <select id="character-state">
+          <option value="All">All</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="unknown">Unknown</option>
+        </select>
+
+        <input
+          type="search"
+          id="search"
+          class="search"
+          placeholder="search by name"
+        />
+      </form>
+    <button class="header-btn">Load Data</button>
+    </header>
+    <main>
+      <img src="/resources/Rick-And-Morty-Logo-650x366.png" alt="Rick and Morty Logo">
+      <ul class="cards-container">
+      </ul>
+    </main>
+    <footer>
+      <p>Made with love and time pressure by MAN</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
