@@ -1,9 +1,22 @@
+import styled from 'styled-components'
+
 const Header = () => {
-   
+
+const StyledHeader = styled.div`
+background-color: deeppink;
+`;
+
+const HeaderH1 = styled.h1`
+color: rgb(46, 45, 45);
+padding: 0.5rem 0;
+`
+
     return (
-        <h1 className="Header">
+        <StyledHeader>
+        <HeaderH1 className="Header">
            React and Morty go crazy
-        </h1>
+        </HeaderH1>
+        </StyledHeader>
     )
 }
 
