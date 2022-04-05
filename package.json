@@ -19,6 +19,7 @@
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write ."
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
