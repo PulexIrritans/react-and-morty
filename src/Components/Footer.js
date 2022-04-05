@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const Footer = () => {
-
 const StyledFooter = styled.div`
 background-color: pink;
 `;
@@ -18,6 +16,7 @@ background-color: deeppink;
 }
 `
 
+const Footer = () => {
 
     return (
         <StyledFooter>
