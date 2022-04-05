@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './Components/Header';
-import Card from './Components/Card';
 import Footer from './Components/Footer';
 import { useEffect, useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
+import MainPage from './pages/MainPage';
   
 
 
@@ -26,18 +26,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main>
-        <ul className="Cards-Container">
-        {characters
-            .map((character) => (
-              <Card
-                key={character.id}
-                image={character.image}
-                name={character.name}
-              />
-            ))}
-        </ul>
-      </main>
+      <MainPage characters={characters}/>
+      {/* <Routes> */}
+      {/* <Route path="/" element={ */}
+       
+      {/* }/>
+      </Routes> */}
       <Footer />
     </div>
   );

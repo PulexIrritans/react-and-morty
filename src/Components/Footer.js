@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 
 const StyledFooter = styled.div`
 background-color: pink;
@@ -21,10 +23,14 @@ const Footer = () => {
     return (
         <StyledFooter>
         <FooterUl>
-        <FooterLi>Home</FooterLi>
-        <FooterLi>Random</FooterLi>
-        <FooterLi>Favorites</FooterLi>
-        <FooterLi>Be creative</FooterLi>
+            <FooterLi>Home</FooterLi>
+            <FooterLi>Random</FooterLi>
+            <FooterLi>Favorites</FooterLi>
+            <FooterLi>Get creative</FooterLi>
+        {/* <Link to="/">Home</Link>
+        <Link to="DetailedPage">Detailed Character</Link>
+        <Link to="RandomPage">Random</Link>
+        <Link to="FavoritesPage">Favorites</Link> */}
         </FooterUl>
         </StyledFooter>
     )
