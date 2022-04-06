@@ -5,10 +5,18 @@
   flex-direction: column;
 }
 
-main {
+.Route {
   flex-grow: 1;
   color: rgb(46, 45, 45);
   padding: 1rem;
+  overflow-y: auto;
+  text-align: center;
+}
+
+main {
+  flex-grow: 1;
+  color: rgb(46, 45, 45);
+  padding: 1rem 1rem;
   overflow-y: auto;
   text-align: center;
 }

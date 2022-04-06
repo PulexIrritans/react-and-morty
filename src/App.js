@@ -1,9 +1,13 @@
 import './App.css';
 import Header from './Components/Header';
-import Card from './Components/Card';
 import Footer from './Components/Footer';
 import { useEffect, useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
+import MainPage from './pages/MainPage';
+import DetailedPage from './pages/DetailedPage';
+import RandomPage from './pages/RandomPage';
+import FavoritesPage from './pages/FavoritesPage';
+import CreativePage from './pages/CreativePage';
   
 
 
@@ -26,18 +30,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main>
-        <ul className="Cards-Container">
-        {characters
-            .map((character) => (
-              <Card
-                key={character.id}
-                image={character.image}
-                name={character.name}
-              />
-            ))}
-        </ul>
-      </main>
+      <Routes>
+      <Route path="/" element={<MainPage characters={characters} />} />
+      <Route path="/details/:id" element={<DetailedPage characters={characters} />} />
+      
+      
+      <Route path="/random" element={<RandomPage character={characters}/>} />
+      <Route path="/favorites" element={<FavoritesPage character={characters}/>} />
+      <Route path="/creative" element={<CreativePage character={characters}/>} />
+      </Routes>
       <Footer />
     </div>
   );
