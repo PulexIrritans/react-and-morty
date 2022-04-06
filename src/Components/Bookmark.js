@@ -12,4 +12,5 @@ export const Bookmark = styled.div`
   &:hover {
       cursor: pointer;
   }
+  
 `;

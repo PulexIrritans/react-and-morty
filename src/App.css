@@ -28,3 +28,7 @@ main {
   gap: 20px;
 }
 
+.active {
+  background-color: rgba(15,15,13)
+}
+
