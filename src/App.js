@@ -38,6 +38,11 @@ function App() {
 
 
   const handleBookmarking = id => {
+    // There is a problem with this function. It seems it doesn't work properly after
+    // page reload, meaning when a user with fav characters in storage comes back to the
+    // page the fav character will be added again to the fav characters array with click on the
+    // symbol. The doubled fav character will be deleted when the symbol is clicked again.
+
     const currentCharacter = characters.find(character => {
       return character.id === id;
     });
@@ -48,11 +53,14 @@ function App() {
       });
       console.log(newfavoriteCharacter, 2)
       localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacter));
+      // The following line seems not to do anything. There is some problem that needs to be fixed.
+
       setFavoriteCharacters(newfavoriteCharacter);
     } else {
       const newfavoriteCharacter = [...favoriteCharacters, currentCharacter];
       console.log(newfavoriteCharacter, 1)
       localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacter));
+      // The following line seems not to do anything. There is some problem that needs to be fixed.
       setFavoriteCharacters(newfavoriteCharacter);
 
     }
@@ -76,7 +84,7 @@ function App() {
         <Route path="/random" element={<RandomPage character={characters} />} />
         <Route
           path="/favorites"
-          element={<FavoritesPage character={favoriteCharacters} />}
+          element={<FavoritesPage characters={favoriteCharacters} handleBookmarking={handleBookmarking}/>}
         />
         <Route
           path="/creative"

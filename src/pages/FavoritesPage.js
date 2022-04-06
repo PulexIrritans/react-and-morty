@@ -1,10 +1,12 @@
 import Card from './../Components/Card';
 
 
-const FavoritesPage = ({ characters }) => {
+const FavoritesPage = ({ characters, handleBookmarking }) => {
+    console.log(characters)
       return (
         <main>
-          <ul className="Cards-Container">
+         {characters.length > 0 ? (
+            <ul className="Cards-Container">
             {characters.map(character => (
               <Card
                 key={character.id}
@@ -16,11 +18,16 @@ const FavoritesPage = ({ characters }) => {
                 status={character.status}
                 location={character.location.name}
                 origin={character.origin.name}
-                mode={false}
+                mode={true}
                 bookmarking={true}
+                handleBookmarking={handleBookmarking}
               />
             ))}
-          </ul>
+          </ul> 
+         ) : (
+             <p>Sorry, you don't have any favorites set.</p>
+         )
+         }
         </main>
       );
     };
