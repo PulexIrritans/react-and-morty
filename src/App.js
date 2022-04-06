@@ -29,17 +29,18 @@ function App() {
   }, []);
 
   const handleBookmarking = (id) => {
-    const currentCharacter = (characters.find(character => character.id == id))
-
-    // favoriteCharacters.some(favcharacter => favcharacter.id == currentCharacter.id) ? console.log(true) : setFavoriteCharacters(favoriteCharacters.push(currentCharacter))
-    // console.log(favoriteCharacters)
+    const currentCharacter = characters.find(character => {
+      return character.id === id})
     
     if (favoriteCharacters.includes(currentCharacter)) {
-      setFavoriteCharacters(favoriteCharacters.filter(character => character.id !== currentCharacter.id))
+      const newfavoriteCharacter = favoriteCharacters.filter(character => {
+        return character.id !== currentCharacter.id})
+      setFavoriteCharacters(newfavoriteCharacter)
     } else {
-      setFavoriteCharacters(favoriteCharacters.push(currentCharacter))
+      const newfavoriteCharacter = [...favoriteCharacters, currentCharacter]
+
+      setFavoriteCharacters(newfavoriteCharacter)
     }
-    console.log(favoriteCharacters)
   }
 
   return (
