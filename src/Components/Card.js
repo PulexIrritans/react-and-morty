@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from './Button';
+import { Bookmark } from './Bookmark';
 import { useState } from "react";
 
 const CardLi = styled.li`
@@ -9,6 +10,7 @@ const CardLi = styled.li`
   max-width: 300px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 5);
   padding-bottom: 1rem;
+  position: relative;
 `;
 
 const Card = ({
@@ -20,9 +22,11 @@ const Card = ({
   species,
   origin,
   location,
-  mode
+  mode,
+  bookmarking
 }) => {
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(mode);
+  
 
   return (
     <>
@@ -30,6 +34,7 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
+          { bookmarking ? (<Bookmark></Bookmark>) : ""}
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
@@ -41,6 +46,7 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
+          { bookmarking ? (<Bookmark></Bookmark>) : ""}
           <Button>
             <Link onClick={() => setCardIsInDetailsMode(true)} to={`/details/${id}`}>
               Show more

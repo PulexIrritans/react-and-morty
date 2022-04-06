@@ -16,6 +16,7 @@ const MainPage = ({ characters }) => {
             location={character.location.name}
             origin={character.origin.name}
             mode={false}
+            bookmarking={false}
           />
         ))}
       </ul>

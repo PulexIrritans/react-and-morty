@@ -19,6 +19,7 @@ const DetailedPage = ({ characters }) => {
             location={currentCharacter.location.name}
             origin={currentCharacter.origin.name}
             mode={true}
+            bookmarking={true}
           /> 
         </ul>
     </main>
