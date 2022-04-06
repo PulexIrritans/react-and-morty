@@ -1,14 +1,14 @@
 import Card from './../Components/Card';
 import { useParams } from 'react-router-dom';
 
-const DetailedPage = ({ characters }) => {
+const DetailedPage = ({ characters, handleBookmarking }) => {
     const { id } =useParams()
     const currentCharacter = (characters.find(character => character.id == id))
 
   return (
     <main>
-        <ul className='Cards-Container'>
-            <Card
+        <ul className='Cards-Container'>{currentCharacter ?
+        (<Card
             key={currentCharacter.id}
             image={currentCharacter.image}
             name={currentCharacter.name}
@@ -20,7 +20,9 @@ const DetailedPage = ({ characters }) => {
             origin={currentCharacter.origin.name}
             mode={true}
             bookmarking={true}
-          /> 
+            handleBookmarking={handleBookmarking}
+          /> ) : ''
+        }
         </ul>
     </main>
   );

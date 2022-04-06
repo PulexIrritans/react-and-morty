@@ -23,7 +23,8 @@ const Card = ({
   origin,
   location,
   mode,
-  bookmarking
+  bookmarking,
+  handleBookmarking
 }) => {
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(mode);
   
@@ -34,7 +35,7 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          { bookmarking ? (<Bookmark></Bookmark>) : ""}
+          { bookmarking ? (<Bookmark onClick={() => handleBookmarking(id)}></Bookmark>) : ""}
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
