@@ -18,7 +18,7 @@ background-color: deeppink;
 }
 `;
 
-const Footer = () => {
+const Footer = ({}) => {
 
     return (
         <StyledFooter>
