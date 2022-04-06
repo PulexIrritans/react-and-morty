@@ -1,6 +1,6 @@
 import Card from './../Components/Card';
 
-const MainPage = ({ characters, mode, handleDetails }) => {
+const MainPage = ({ characters }) => {
   return (
     <main>
       <ul className="Cards-Container">
@@ -15,8 +15,7 @@ const MainPage = ({ characters, mode, handleDetails }) => {
             status={character.status}
             location={character.location.name}
             origin={character.origin.name}
-            mode={mode}
-            handleDetails={handleDetails}
+            mode={false}
           />
         ))}
       </ul>

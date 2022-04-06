@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from './Button';
+import { useState } from "react";
 
 const CardLi = styled.li`
   background-color: pink;
@@ -19,14 +20,13 @@ const Card = ({
   species,
   origin,
   location,
-  mode,
-  handleDetails
-  
+  mode
 }) => {
-  
+  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(mode);
+
   return (
     <>
-      {mode ? (
+      {cardIsInDetailsMode ? (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
@@ -35,14 +35,16 @@ const Card = ({
           <p>Gender: {gender}</p>
           <p>Origin: {origin}</p>
           <p>Location: {location}</p>
-          <Button onClick={handleDetails}>Show less</Button>
+          <Button onClick={() => setCardIsInDetailsMode(false)}>Show less</Button>
         </CardLi>
       ) : (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
           <Button>
-              <Link onClick={handleDetails} to={`/details/${id}`}>Show more</Link>
+            <Link onClick={() => setCardIsInDetailsMode(true)} to={`/details/${id}`}>
+              Show more
+            </Link>
           </Button>
         </CardLi>
       )}

@@ -14,7 +14,6 @@ import CreativePage from './pages/CreativePage';
 function App() {
 
   const [characters, setCharacters] = useState([]);
-  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(false);
 
   const url = "https://rickandmortyapi.com/api/character/";
 
@@ -28,27 +27,19 @@ function App() {
     loadCharacters();
   }, []);
 
-  const handleDetails = () => {
-    setCardIsInDetailsMode(previousState => !previousState);
-  };
-
-  const setToNoDetails = () => {
-    setCardIsInDetailsMode(false)
-  }
-
   return (
     <div className="App">
       <Header />
       <Routes>
-      <Route path="/" element={<MainPage characters={characters} mode={cardIsInDetailsMode} handleDetails={handleDetails}/>} />
-      <Route path="/details/:id" element={<DetailedPage characters={characters} mode={cardIsInDetailsMode} handleDetails={handleDetails}/>} />
+      <Route path="/" element={<MainPage characters={characters} />} />
+      <Route path="/details/:id" element={<DetailedPage characters={characters} />} />
       
       
       <Route path="/random" element={<RandomPage character={characters}/>} />
       <Route path="/favorites" element={<FavoritesPage character={characters}/>} />
       <Route path="/creative" element={<CreativePage character={characters}/>} />
       </Routes>
-      <Footer setToNoDetails={setToNoDetails}/>
+      <Footer />
     </div>
   );
 }
