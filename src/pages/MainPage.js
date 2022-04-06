@@ -10,7 +10,6 @@ const MainPage = ({ characters }) => {
             image={character.image}
             name={character.name}
             gender={character.gender}
-            isactive={false}
             id={character.id}
             species={character.species}
             status={character.status}
