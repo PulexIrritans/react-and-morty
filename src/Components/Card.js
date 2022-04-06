@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import styled from 'styled-components';
-import { useState } from 'react';
 import { Button } from './Button';
 
 const CardLi = styled.li`
@@ -20,18 +19,14 @@ const Card = ({
   species,
   origin,
   location,
+  mode,
+  handleDetails
   
 }) => {
-  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(false);
-
-  const handleDetails = () => {
-    setCardIsInDetailsMode(previousState => !previousState);
-  };
-
   
   return (
     <>
-      {cardIsInDetailsMode ? (
+      {mode ? (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>

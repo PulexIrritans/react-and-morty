@@ -18,12 +18,12 @@ background-color: deeppink;
 }
 `;
 
-const Footer = () => {
+const Footer = ({setToNoDetails}) => {
 
     return (
         <StyledFooter>
         <FooterUl>
-            <FooterLi><Link to="/">Home</Link></FooterLi>
+            <FooterLi><Link onClick={setToNoDetails} to="/">Home</Link></FooterLi>
             <FooterLi><Link to="/random">Random</Link></FooterLi>
             <FooterLi><Link to="/favorites">Favorites</Link></FooterLi>
             <FooterLi><Link to="/creative">Get creative</Link></FooterLi>

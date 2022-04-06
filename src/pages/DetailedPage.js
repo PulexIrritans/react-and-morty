@@ -1,7 +1,7 @@
 import Card from './../Components/Card';
 import { useParams } from 'react-router-dom';
 
-const DetailedPage = ({ characters }) => {
+const DetailedPage = ({ characters, mode, handleDetails }) => {
     const { id } =useParams()
     const currentCharacter = (characters.find(character => character.id == id))
 
@@ -18,6 +18,8 @@ const DetailedPage = ({ characters }) => {
             status={currentCharacter.status}
             location={currentCharacter.location.name}
             origin={currentCharacter.origin.name}
+            mode={mode}
+            handleDetails={handleDetails}
           /> 
         </ul>
     </main>
