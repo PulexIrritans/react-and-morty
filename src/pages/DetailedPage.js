@@ -18,7 +18,7 @@ const DetailedPage = ({ characters, handleBookmarking }) => {
             status={currentCharacter.status}
             location={currentCharacter.location.name}
             origin={currentCharacter.origin.name}
-            mode={true}
+            detailsmode={true}
             bookmarking={true}
             handleBookmarking={handleBookmarking}
           /> ) : ''

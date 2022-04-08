@@ -22,12 +22,12 @@ const Card = ({
   species,
   origin,
   location,
-  mode,
+  detailsmode,
   bookmarking,
   handleBookmarking
 }) => {
   const [isActive, setActive] = useState(false);
-  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(mode);
+  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsmode);
   
 
   return (

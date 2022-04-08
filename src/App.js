@@ -11,7 +11,7 @@ import CreativePage from './pages/CreativePage';
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [favoriteCharacters, setFavoriteCharacters] = useState([]);
+  const [favoriteCharacterIDs, setFavoriteCharacterIDs] = useState([]);
 
   const url = 'https://rickandmortyapi.com/api/character/';
 
@@ -23,19 +23,15 @@ function App() {
 
   useEffect(() => {
     loadCharacters();
+    loadFavoriteCharacters();
   }, []);
 
-  const loadfavoriteCharacters = () => {
+  const loadFavoriteCharacters = () => {
     const localStorageReturn = JSON.parse(localStorage.getItem('favChar'));
     localStorageReturn === null
-      ? setFavoriteCharacters([])
-      : setFavoriteCharacters(localStorageReturn);
+      ? setFavoriteCharacterIDs([])
+      : setFavoriteCharacterIDs(localStorageReturn);
   };
-
-  useEffect(() => {
-    loadfavoriteCharacters();
-  },[]);
-
 
   const handleBookmarking = id => {
     // There is a problem with this function. It seems it doesn't work properly after
@@ -47,21 +43,21 @@ function App() {
       return character.id === id;
     });
 
-    if (favoriteCharacters.includes(currentCharacter)) {
-      const newfavoriteCharacter = favoriteCharacters.filter(character => {
-        return character.id !== currentCharacter.id;
+    if (favoriteCharacterIDs.includes(currentCharacter.id)) {
+      const newfavoriteCharacterIDs = favoriteCharacterIDs.filter(characterID => {
+        return characterID !== currentCharacter.id;
       });
-      console.log(newfavoriteCharacter, 2)
-      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacter));
+      console.log(newfavoriteCharacterIDs, 2)
+      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacterIDs));
       // The following line seems not to do anything. There is some problem that needs to be fixed.
 
-      setFavoriteCharacters(newfavoriteCharacter);
+      setFavoriteCharacterIDs(newfavoriteCharacterIDs);
     } else {
-      const newfavoriteCharacter = [...favoriteCharacters, currentCharacter];
-      console.log(newfavoriteCharacter, 1)
-      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacter));
+      const newfavoriteCharacterIDs = [...favoriteCharacterIDs, currentCharacter.id];
+      console.log(newfavoriteCharacterIDs, 1)
+      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacterIDs));
       // The following line seems not to do anything. There is some problem that needs to be fixed.
-      setFavoriteCharacters(newfavoriteCharacter);
+      setFavoriteCharacterIDs(newfavoriteCharacterIDs);
 
     }
   };
@@ -84,7 +80,7 @@ function App() {
         <Route path="/random" element={<RandomPage character={characters} />} />
         <Route
           path="/favorites"
-          element={<FavoritesPage characters={favoriteCharacters} handleBookmarking={handleBookmarking}/>}
+          element={<FavoritesPage characters={characters} favcharacterIDs={favoriteCharacterIDs} handleBookmarking={handleBookmarking}/>}
         />
         <Route
           path="/creative"

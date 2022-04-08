@@ -15,7 +15,7 @@ const MainPage = ({ characters }) => {
             status={character.status}
             location={character.location.name}
             origin={character.origin.name}
-            mode={false}
+            detailsmode={false}
             bookmarking={false}
           />
         ))}
