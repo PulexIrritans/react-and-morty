@@ -39,9 +39,7 @@ const Card = ({
           {bookmarking ? (
             <Bookmark
               className={isbookmarked ? 'activebookmark' : ''}
-              onClick={() => {
-                handleBookmarking(id);
-              }}
+              onClick={handleBookmarking}
             ></Bookmark>
           ) : (
             ''
@@ -69,14 +67,20 @@ const Card = ({
           ) : (
             ''
           )}
-          <Button>
-            <Link
-              onClick={() => setCardIsInDetailsMode(true)}
-              to={`/details/${id}`}
-            >
+          {bookmarking ? (
+            <Button onClick={() => setCardIsInDetailsMode(true)}>
               Show more
-            </Link>
-          </Button>
+            </Button>
+          ) : (
+            <Button>
+              <Link
+                onClick={() => setCardIsInDetailsMode(true)}
+                to={`/details/${id}`}
+              >
+                Show more
+              </Link>
+            </Button>
+          )}
         </CardLi>
       )}
     </>
