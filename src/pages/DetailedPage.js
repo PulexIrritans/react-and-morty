@@ -1,7 +1,7 @@
 import Card from './../Components/Card';
 import { useParams } from 'react-router-dom';
 
-const DetailedPage = ({ characters, handleBookmarking }) => {
+const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {
     const { id } =useParams()
     const currentCharacter = (characters.find(character => character.id == id))
 
@@ -21,6 +21,7 @@ const DetailedPage = ({ characters, handleBookmarking }) => {
             detailsmode={true}
             bookmarking={true}
             handleBookmarking={handleBookmarking}
+            isbookmarked={favcharacterIDs.includes(currentCharacter.id)}
           /> ) : ''
         }
         </ul>

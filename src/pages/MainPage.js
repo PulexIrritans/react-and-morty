@@ -1,6 +1,6 @@
 import Card from './../Components/Card';
 
-const MainPage = ({ characters }) => {
+const MainPage = ({ characters, favCharacterIDs }) => {
   return (
     <main>
       <ul className="Cards-Container">
@@ -17,6 +17,7 @@ const MainPage = ({ characters }) => {
             origin={character.origin.name}
             detailsmode={false}
             bookmarking={false}
+            isbookmarked={false}
           />
         ))}
       </ul>

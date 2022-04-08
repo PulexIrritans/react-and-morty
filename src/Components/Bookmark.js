@@ -12,5 +12,8 @@ export const Bookmark = styled.div`
   &:hover {
       cursor: pointer;
   }
+  &.activebookmark {
+      background-color: black;
+  } 
   
 `;

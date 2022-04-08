@@ -24,9 +24,10 @@ const Card = ({
   location,
   detailsmode,
   bookmarking,
-  handleBookmarking
+  handleBookmarking,
+  isbookmarked
 }) => {
-  const [isActive, setActive] = useState(false);
+//   const [isActive, setActive] = useState(false);
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsmode);
   
 
@@ -36,7 +37,7 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          { bookmarking ? (<Bookmark className={isActive ? "active" : null} onClick={() => {setActive(!isActive); handleBookmarking(id)}}></Bookmark>) : ""}
+          { bookmarking ? (<Bookmark className={isbookmarked ? "activebookmark" : ""} onClick={() => {handleBookmarking(id)}}></Bookmark>) : ""}
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
@@ -48,7 +49,7 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          { bookmarking ? (<Bookmark className={isActive ? "active" : null} onClick={() => {setActive(!isActive); handleBookmarking(id)}}></Bookmark>) : ""}
+          { bookmarking ? (<Bookmark className={isbookmarked ? "activebookmark" : ""} onClick={() => {handleBookmarking(id)}}></Bookmark>) : ""}
           <Button>
             <Link onClick={() => setCardIsInDetailsMode(true)} to={`/details/${id}`}>
               Show more

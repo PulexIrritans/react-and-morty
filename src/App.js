@@ -72,6 +72,7 @@ function App() {
           element={
             <DetailedPage
               characters={characters}
+              favcharacterIDs={favoriteCharacterIDs}
               handleBookmarking={handleBookmarking}
             />
           }

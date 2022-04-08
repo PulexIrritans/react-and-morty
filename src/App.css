@@ -28,7 +28,8 @@ main {
   gap: 20px;
 }
 
-.active {
+.activebookmark {
   background-color: rgba(15,15,13)
+
 }
 
