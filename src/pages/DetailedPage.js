@@ -18,7 +18,7 @@ const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {
             status={currentCharacter.status}
             location={currentCharacter.location.name}
             origin={currentCharacter.origin.name}
-            detailsmode={true}
+            detailsMode={true}
             bookmarking={true}
             handleBookmarking={handleBookmarking}
             isbookmarked={favcharacterIDs.includes(currentCharacter.id)}

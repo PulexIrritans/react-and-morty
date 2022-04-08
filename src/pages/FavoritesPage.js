@@ -16,7 +16,7 @@ const FavoritesPage = ({ characters, favcharacterIDs, handleBookmarking }) => {
               status={character.status}
               location={character.location.name}
               origin={character.origin.name}
-              detailsmode={true}
+              detailsMode={true}
               bookmarking={true}
               handleBookmarking={handleBookmarking}
               isbookmarked={favcharacterIDs.includes(character.id)}
@@ -24,7 +24,7 @@ const FavoritesPage = ({ characters, favcharacterIDs, handleBookmarking }) => {
           ) : (
             ''
           )
-        )) : ( <p>You don't have any favorites set, yet</p> ) 
+        )) : ( <p>You don't have any favorites set, yet.</p> ) 
         }
       </ul>
     </main>

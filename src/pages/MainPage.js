@@ -15,7 +15,7 @@ const MainPage = ({ characters, favCharacterIDs }) => {
             status={character.status}
             location={character.location.name}
             origin={character.origin.name}
-            detailsmode={false}
+            detailsMode={false}
             bookmarking={false}
             isbookmarked={false}
           />

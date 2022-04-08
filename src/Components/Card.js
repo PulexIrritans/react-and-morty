@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from './Button';
 import { Bookmark } from './Bookmark';
-import { useState } from "react";
+import { useState } from 'react';
 
 const CardLi = styled.li`
   background-color: pink;
@@ -22,14 +22,13 @@ const Card = ({
   species,
   origin,
   location,
-  detailsmode,
+  detailsMode,
   bookmarking,
   handleBookmarking,
-  isbookmarked
+  isbookmarked,
 }) => {
-//   const [isActive, setActive] = useState(false);
-  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsmode);
-  
+  //   const [isActive, setActive] = useState(false);
+  const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsMode);
 
   return (
     <>
@@ -37,21 +36,44 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          { bookmarking ? (<Bookmark className={isbookmarked ? "activebookmark" : ""} onClick={() => {handleBookmarking(id)}}></Bookmark>) : ""}
+          {bookmarking ? (
+            <Bookmark
+              className={isbookmarked ? 'activebookmark' : ''}
+              onClick={() => {
+                handleBookmarking(id);
+              }}
+            ></Bookmark>
+          ) : (
+            ''
+          )}
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
           <p>Origin: {origin}</p>
           <p>Location: {location}</p>
-          <Button onClick={() => setCardIsInDetailsMode(false)}>Show less</Button>
+          <Button onClick={() => setCardIsInDetailsMode(false)}>
+            Show less
+          </Button>
         </CardLi>
       ) : (
         <CardLi>
           <img src={image} alt="Profile picture" />
           <h2>{name}</h2>
-          { bookmarking ? (<Bookmark className={isbookmarked ? "activebookmark" : ""} onClick={() => {handleBookmarking(id)}}></Bookmark>) : ""}
+          {bookmarking ? (
+            <Bookmark
+              className={isbookmarked ? 'activebookmark' : ''}
+              onClick={() => {
+                handleBookmarking(id);
+              }}
+            ></Bookmark>
+          ) : (
+            ''
+          )}
           <Button>
-            <Link onClick={() => setCardIsInDetailsMode(true)} to={`/details/${id}`}>
+            <Link
+              onClick={() => setCardIsInDetailsMode(true)}
+              to={`/details/${id}`}
+            >
               Show more
             </Link>
           </Button>
