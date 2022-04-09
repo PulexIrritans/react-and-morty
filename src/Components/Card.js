@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from './Button';
 import { Bookmark } from './Bookmark';
@@ -16,7 +15,6 @@ const CardLi = styled.li`
 const Card = ({
   image,
   name,
-  id,
   gender,
   status,
   species,
@@ -26,6 +24,7 @@ const Card = ({
   bookmarking,
   handleBookmarking,
   isbookmarked,
+  onClickCallback
 }) => {
   //   const [isActive, setActive] = useState(false);
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsMode);
@@ -34,14 +33,12 @@ const Card = ({
     <>
       {cardIsInDetailsMode ? (
         <CardLi>
-          <img src={image} alt="Profile picture" />
+          <img src={image} alt="Profile" />
           <h2>{name}</h2>
           {bookmarking ? (
             <Bookmark
-              className={isbookmarked ? 'activebookmark' : ''}
-              onClick={() => {
-                handleBookmarking(id);
-              }}
+             isbookmarked={isbookmarked}
+              onClick={handleBookmarking}
             ></Bookmark>
           ) : (
             ''
@@ -57,26 +54,19 @@ const Card = ({
         </CardLi>
       ) : (
         <CardLi>
-          <img src={image} alt="Profile picture" />
+          <img src={image} alt="Profile" />
           <h2>{name}</h2>
           {bookmarking ? (
             <Bookmark
-              className={isbookmarked ? 'activebookmark' : ''}
-              onClick={() => {
-                handleBookmarking(id);
-              }}
+              isbookmarked={isbookmarked}
+              onClick={handleBookmarking}
             ></Bookmark>
           ) : (
             ''
           )}
-          <Button>
-            <Link
-              onClick={() => setCardIsInDetailsMode(true)}
-              to={`/details/${id}`}
-            >
+            <Button onClick={() => {setCardIsInDetailsMode(true); onClickCallback()}}>
               Show more
-            </Link>
-          </Button>
+            </Button>
         </CardLi>
       )}
     </>

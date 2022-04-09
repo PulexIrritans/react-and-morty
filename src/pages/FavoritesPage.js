@@ -18,7 +18,7 @@ const FavoritesPage = ({ characters, favcharacterIDs, handleBookmarking }) => {
               origin={character.origin.name}
               detailsMode={true}
               bookmarking={true}
-              handleBookmarking={handleBookmarking}
+              handleBookmarking={() => handleBookmarking(character.id)}
               isbookmarked={favcharacterIDs.includes(character.id)}
             />
           ) : (

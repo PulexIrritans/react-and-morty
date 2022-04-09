@@ -20,7 +20,7 @@ const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {
             origin={currentCharacter.origin.name}
             detailsMode={true}
             bookmarking={true}
-            handleBookmarking={handleBookmarking}
+            handleBookmarking={() => handleBookmarking(currentCharacter.id)}
             isbookmarked={favcharacterIDs.includes(currentCharacter.id)}
           /> ) : ''
         }
