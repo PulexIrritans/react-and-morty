@@ -1,6 +1,9 @@
 import Card from './../Components/Card';
+import { useNavigate } from 'react-router-dom';
 
-const MainPage = ({ characters, favCharacterIDs }) => {
+const MainPage = ({ characters }) => {
+  const navigate = useNavigate();
+
   return (
     <main>
       <ul className="Cards-Container">
@@ -17,6 +20,7 @@ const MainPage = ({ characters, favCharacterIDs }) => {
             origin={character.origin.name}
             detailsMode={false}
             bookmarking={false}
+            onClickCallback={() => navigate(`details/${character.id}`)}
           />
         ))}
       </ul>
