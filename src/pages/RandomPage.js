@@ -8,10 +8,11 @@ const RandomPage = ({ characters }) => {
 
   const getRandomCharacter = () => {
     const randomID =
-      Math.floor(Math.random() * (characters.length - 1 - 1)) + 1;
+      Math.floor(Math.random() * characters.length)+1;
     const randomResult = characters.find(
       character => character.id === randomID
     );
+    console.log(randomID)
     setRandomCharacter(randomResult);
   };
 
