@@ -1,48 +1,50 @@
 import { useState } from 'react';
 import Card from '../Components/Card';
 import { Button } from '../Components/Button';
-import {ReactComponent as QuestionLogo} from '../Resources/question.svg'
+import { ReactComponent as QuestionLogo } from '../Resources/question.svg';
 
 const RandomPage = ({ characters }) => {
-const [randomID, setRandomID] = useState();
+  const [randomCharacter, setRandomCharacter] = useState();
 
-
-  // const setRandomCharacter = () => {
-
-  //   const id = Math.floor(Math.random() * (characters.length-1 - 1)) + 1;
-  //   const randomCharacter = characters.find(character => {return character.id === id});
-  //   setRandomID(id)
-  // }
-
-  //   const currentCharacter = (characters.find(character => character.id == id))
-
-    return (
-      <main>
-           <ul className='Cards-Container'>{randomID ?
-        (<Card
-            key={characters.id}
-            image={characters.image}
-            name={characters.name}
-            gender={characters.gender}
-            id={characters.id}
-            species={characters.species}
-            status={characters.status}
-            location={characters.location.name}
-            origin={characters.origin.name}
-            detailsMode={false}
-            bookmarking={false}
-            isbookmarked={false}
-          /> ) : (
-          <>
-          <QuestionLogo style={{width: "500px"}}/>
-          {/* <Button onClick={setRandomCharacter}>Random Character</Button> */}
-          </>
-        )
-        }
-        </ul>  
-         
-      </main>
+  const getRandomCharacter = () => {
+    const randomID =
+      Math.floor(Math.random() * (characters.length - 1 - 1)) + 1;
+    const randomResult = characters.find(
+      character => character.id === randomID
     );
+    setRandomCharacter(randomResult);
   };
-  
-  export default RandomPage
+
+  return (
+    <main>
+      <ul className="Random-Cards-Container">
+        {randomCharacter ? (
+          <>
+            <Card
+              key={randomCharacter.id}
+              image={randomCharacter.image}
+              name={randomCharacter.name}
+              gender={randomCharacter.gender}
+              id={randomCharacter.id}
+              species={randomCharacter.species}
+              status={randomCharacter.status}
+              location={randomCharacter.location.name}
+              origin={randomCharacter.origin.name}
+              detailsMode={false}
+              bookmarking={false}
+              isbookmarked={false}
+            />
+            <Button onClick={getRandomCharacter}>Get Random Character</Button>
+          </>
+        ) : (
+          <>
+            <QuestionLogo style={{ width: '500px' }} />
+            <Button onClick={getRandomCharacter}>Get Random Character</Button>
+          </>
+        )}
+      </ul>
+    </main>
+  );
+};
+
+export default RandomPage;

@@ -28,8 +28,10 @@ main {
   gap: 20px;
 }
 
-.activebookmark {
-  background-color: rgba(15,15,13)
-
+.Random-Cards-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
