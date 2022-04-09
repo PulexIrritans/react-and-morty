@@ -52,6 +52,7 @@ function App() {
       console.log(newfavoriteCharacterIDs, 1)
       localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacterIDs));
       setFavoriteCharacterIDs(newfavoriteCharacterIDs);
+    
 
     }
   };
@@ -72,7 +73,7 @@ function App() {
           }
         />
 
-        <Route path="/random" element={<RandomPage character={characters} />} />
+        <Route path="/random" element={<RandomPage characters={characters} />} />
         <Route
           path="/favorites"
           element={<FavoritesPage characters={characters} favcharacterIDs={favoriteCharacterIDs} handleBookmarking={handleBookmarking}/>}
