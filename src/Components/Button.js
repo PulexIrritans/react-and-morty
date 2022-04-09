@@ -6,6 +6,7 @@ export const Button = styled.button`
   border: none;
   font-family: inherit;
   font-size: inherit;
+  align-self: center;
 
   &:active {
     background: ${(props) =>

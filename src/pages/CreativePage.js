@@ -1,7 +1,7 @@
 const CreativePage = ({  }) => {
     return (
       <main>
-          <p>Creative Page</p>
+          <p>Now, go and improve your React skills!</p>
       </main>
     );
   };

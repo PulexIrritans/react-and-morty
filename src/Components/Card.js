@@ -60,9 +60,7 @@ const Card = ({
           {bookmarking ? (
             <Bookmark
               className={isbookmarked ? 'activebookmark' : ''}
-              onClick={() => {
-                handleBookmarking(id);
-              }}
+              onClick={handleBookmarking}
             ></Bookmark>
           ) : (
             ''

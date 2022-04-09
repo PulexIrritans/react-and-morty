@@ -17,7 +17,6 @@ const MainPage = ({ characters, favCharacterIDs }) => {
             origin={character.origin.name}
             detailsMode={false}
             bookmarking={false}
-            isbookmarked={false}
           />
         ))}
       </ul>
