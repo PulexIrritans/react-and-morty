@@ -26,6 +26,10 @@ function App() {
     loadFavoriteCharacters();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('favChar', JSON.stringify(favoriteCharacterIDs));
+  }, [favoriteCharacterIDs])
+
   const loadFavoriteCharacters = () => {
     const localStorageReturn = JSON.parse(localStorage.getItem('favChar'));
     if (localStorageReturn === null) 
@@ -34,26 +38,15 @@ function App() {
   };
 
   const handleBookmarking = id => {
-   
-    const currentCharacter = characters.find(character => {
-      return character.id === id;
-    });
-
-    if (favoriteCharacterIDs.includes(currentCharacter.id)) {
+    if (favoriteCharacterIDs.includes(id)) {
       const newfavoriteCharacterIDs = favoriteCharacterIDs.filter(characterID => {
-        return characterID !== currentCharacter.id;
+        return characterID !== id;
       });
-      console.log(newfavoriteCharacterIDs, 2)
-      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacterIDs));
-
       setFavoriteCharacterIDs(newfavoriteCharacterIDs);
     } else {
-      const newfavoriteCharacterIDs = [...favoriteCharacterIDs, currentCharacter.id];
+      const newfavoriteCharacterIDs = [...favoriteCharacterIDs, id];
       console.log(newfavoriteCharacterIDs, 1)
-      localStorage.setItem('favChar', JSON.stringify(newfavoriteCharacterIDs));
       setFavoriteCharacterIDs(newfavoriteCharacterIDs);
-    
-
     }
   };
 
