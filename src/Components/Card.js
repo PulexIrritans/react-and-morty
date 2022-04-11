@@ -26,7 +26,6 @@ const Card = ({
   isbookmarked,
   onClickCallback
 }) => {
-  //   const [isActive, setActive] = useState(false);
   const [cardIsInDetailsMode, setCardIsInDetailsMode] = useState(detailsMode);
 
   return (
@@ -35,14 +34,12 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile" />
           <h2>{name}</h2>
-          {bookmarking ? (
+          {bookmarking && 
             <Bookmark
              isbookmarked={isbookmarked}
               onClick={handleBookmarking}
             ></Bookmark>
-          ) : (
-            ''
-          )}
+          }
           <p>Status: {status}</p>
           <p>Species: {species}</p>
           <p>Gender: {gender}</p>
@@ -56,14 +53,12 @@ const Card = ({
         <CardLi>
           <img src={image} alt="Profile" />
           <h2>{name}</h2>
-          {bookmarking ? (
+          {bookmarking &&
             <Bookmark
               isbookmarked={isbookmarked}
               onClick={handleBookmarking}
             ></Bookmark>
-          ) : (
-            ''
-          )}
+          }
             <Button onClick={() => {setCardIsInDetailsMode(true); onClickCallback()}}>
               Show more
             </Button>

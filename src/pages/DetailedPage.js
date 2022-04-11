@@ -1,28 +1,42 @@
 import Card from './../Components/Card';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {
     const { id } =useParams()
-    const currentCharacter = (characters.find(character => character.id == id))
+    const [detailedCharacter, setDetailedCharacter] = useState();
+
+    const loadCharacters = () => {
+      const basicUrl = 'https://rickandmortyapi.com/api/character/';
+      fetch(basicUrl+id)
+        .then(response => response.json())
+        .then(data => setDetailedCharacter(data));
+    };
+
+    useEffect(() => {
+      loadCharacters()
+    }, []);
+      
 
   return (
     <main>
-        <ul className='Cards-Container'>{currentCharacter ?
+        <ul className='Cards-Container'>{detailedCharacter &&
         (<Card
-            key={currentCharacter.id}
-            image={currentCharacter.image}
-            name={currentCharacter.name}
-            gender={currentCharacter.gender}
-            id={currentCharacter.id}
-            species={currentCharacter.species}
-            status={currentCharacter.status}
-            location={currentCharacter.location.name}
-            origin={currentCharacter.origin.name}
+            key={detailedCharacter.id}
+            image={detailedCharacter.image}
+            name={detailedCharacter.name}
+            gender={detailedCharacter.gender}
+            id={detailedCharacter.id}
+            species={detailedCharacter.species}
+            status={detailedCharacter.status}
+            location={detailedCharacter.location.name}
+            origin={detailedCharacter.origin.name}
             detailsMode={true}
             bookmarking={true}
-            handleBookmarking={() => handleBookmarking(currentCharacter.id)}
-            isbookmarked={favcharacterIDs.includes(currentCharacter.id)}
-          /> ) : ''
+            handleBookmarking={() => handleBookmarking(detailedCharacter.id)}
+            isbookmarked={favcharacterIDs.includes(detailedCharacter.id)}
+            onClickCallback={() =>{}}
+          /> )
         }
         </ul>
     </main>
