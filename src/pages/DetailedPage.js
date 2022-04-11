@@ -1,5 +1,6 @@
 import Card from './../Components/Card';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {

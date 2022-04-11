@@ -50,7 +50,7 @@ const RandomPage = ({ characters }) => {
             location={randomCharacter.location.name}
             origin={randomCharacter.origin.name}
             detailsMode={false}
-            bookmarking={true}
+            bookmarking={false}
             isbookmarked={false}
             onClickCallback={() => navigate(`/details/${randomCharacter.id}`)}
           />

@@ -9,22 +9,30 @@ const FavoritesPage = ({ favcharacterIDs, handleBookmarking }) => {
   const loadCharacters = () => {
   const basicUrl = 'https://rickandmortyapi.com/api/character/';
   
-  
-  fetch(basicUrl+favcharacterIDs)
+  if (favcharacterIDs.length>1) { 
+    console.log(basicUrl+favcharacterIDs)
+    fetch(basicUrl+favcharacterIDs)
   .then(response => response.json())
-  .then(data => setFavoriteCharacters(data));
-  };
-
+  .then(data => setFavoriteCharacters(data))
+   }
+  else if (favcharacterIDs.length ===1) {
+    console.log(favcharacterIDs.toString())
+    fetch(basicUrl+favcharacterIDs.toString())
+  .then(response => response.json())
+  .then(data => setFavoriteCharacters([data]))
+  } else {
+    setFavoriteCharacters([])
+  }
+  }
   useEffect(() => {
     loadCharacters()
-  }, []);
+  }, [favcharacterIDs]);
 
   return (
     <main>
       <ul className="Cards-Container">
-        {favoriteCharacters.length > 0 ? (
-          favoriteCharacters.map(
-            character =>
+        {favoriteCharacters.length>0 ? (favoriteCharacters.map(
+            character => 
               (
                 <Card
                   key={character.id}
@@ -44,9 +52,11 @@ const FavoritesPage = ({ favcharacterIDs, handleBookmarking }) => {
                 />
               )
           )
-        ) : (
+        ) :
+         (
           <p>You don't have any favorites set, yet.</p>
-        )}
+        )
+        }
       </ul>
     </main>
   );

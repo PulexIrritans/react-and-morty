@@ -45,7 +45,7 @@ function App() {
       setFavoriteCharacterIDs(newfavoriteCharacterIDs);
     } else {
       const newfavoriteCharacterIDs = [...favoriteCharacterIDs, id];
-      console.log(newfavoriteCharacterIDs, 1)
+      console.log(newfavoriteCharacterIDs)
       setFavoriteCharacterIDs(newfavoriteCharacterIDs);
     }
   };
