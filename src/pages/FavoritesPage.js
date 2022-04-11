@@ -1,25 +1,31 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
 import Card from './../Components/Card';
 
-const FavoritesPage = ({ characters, favcharacterIDs, handleBookmarking }) => {
-  //Some desparate attempts to create a map fetch of all favIDs. Seems not the right reasoning.
+const FavoritesPage = ({ favcharacterIDs, handleBookmarking }) => {
+  
+  const [favoriteCharacters, setFavoriteCharacters] = useState([]);
 
-  // const loadCharacters = (id) => {
-  //   const basicUrl = 'https://rickandmortyapi.com/api/character/';
-  //   fetch(basicUrl+id)
-  //     .then(response => response.json())
-  //     .then(data => setFavoriteCharacter(favoriteCharacters.push(data)));
-  // };
+  const loadCharacters = () => {
+  const basicUrl = 'https://rickandmortyapi.com/api/character/';
+  
+  
+  fetch(basicUrl+favcharacterIDs)
+  .then(response => response.json())
+  .then(data => setFavoriteCharacters(data));
+  };
 
-  // const favCharactersList = favcharacterIDs.map( fav => loadCharacters(fav.id))
-  // console.log(favCharactersList)
+  useEffect(() => {
+    loadCharacters()
+  }, []);
 
   return (
     <main>
       <ul className="Cards-Container">
-        {favcharacterIDs.length > 0 ? (
-          characters.map(
+        {favoriteCharacters.length > 0 ? (
+          favoriteCharacters.map(
             character =>
-              favcharacterIDs.includes(character.id) && (
+              (
                 <Card
                   key={character.id}
                   image={character.image}

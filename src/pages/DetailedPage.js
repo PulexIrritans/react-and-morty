@@ -13,7 +13,9 @@ const DetailedPage = ({ characters, handleBookmarking, favcharacterIDs }) => {
         .then(data => setDetailedCharacter(data));
     };
 
-    loadCharacters()
+    useEffect(() => {
+      loadCharacters()
+    }, []);
       
 
   return (
