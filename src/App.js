@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
+      <Routes className="Route">
         <Route path="/" element={<MainPage characters={characters} />} />
         <Route
           path="/details/:id"
